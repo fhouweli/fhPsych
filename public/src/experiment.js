@@ -88,7 +88,7 @@ const DATE = YYYY + MM + DD + "_" + SEC;
       timeline: [fixation, test],
       timeline_variables: test_stimuli,
       randomize_order: true,
-      repetitions: 1
+      repetitions: 2
     }
 
     timeline.push(test_procedure);
@@ -130,7 +130,8 @@ const DATE = YYYY + MM + DD + "_" + SEC;
                     data: JSON.stringify(jsPsych.data.get().values()),
                     contentType: "application/json"
                 }).done(function() {
-                    window.location.href = "finish";
+                    //jsPsych.data.displayData();
+                    window.location.href = "finish"
                 }).fail(function() {
                     alert("Problem occurred while writing data to Dropbox. " +
                         "Data will be saved to your computer. " +
@@ -138,7 +139,7 @@ const DATE = YYYY + MM + DD + "_" + SEC;
                     var csv = jsPsych.data.get().csv();
                     var filename = jsPsych.data.get().values()[0].part_ID + "_" + DATE + ".csv";
                     downloadCSV(csv, filename);
-                    window.location.href = "finish";
+                    window.location.href = "finish"
                 });
             }
         })
